@@ -1,20 +1,11 @@
 package com.banking.pages;
 
-import com.banking.utils.DriverFactory;
-import com.banking.utils.ElementHelper;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class AccountPage {
-
-    private final ElementHelper elementHelper;
-    private final WebDriver driver;
+public class AccountPage extends BasePage {
 
     public AccountPage() {
-        this.driver = DriverFactory.getDriver("chrome", false); // DriverFactory'den driver alınıyor
-        this.elementHelper = new ElementHelper(driver);
-
-        // JSON dosyasından elementleri yükle
+        super(); // BasePage constructor'ını çağırır
         elementHelper.loadElementsFromJson("src/test/resources/elementValues/account.json");
     }
 
@@ -28,8 +19,7 @@ public class AccountPage {
             WebElement element = elementHelper.findElement(key);
             return element.isDisplayed();
         } catch (Exception e) {
-            return false; // Element bulunamazsa veya görünür değilse false döner
+            return false;
         }
     }
-
 }

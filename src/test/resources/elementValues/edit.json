@@ -1,0 +1,22 @@
+[
+  {
+    "key": "editAccountButton",
+    "value": "//button[@id='edit-account']",
+    "type": "xpath"
+  },
+  {
+    "key": "popupTitle",
+    "value": "//div[@class='popup-title' and text()='Edit Account']",
+    "type": "xpath"
+  },
+  {
+    "key": "saveButton",
+    "value": "//button[@id='save-changes']",
+    "type": "xpath"
+  },
+  {
+    "key": "cancelButton",
+    "value": "//button[@id='cancel']",
+    "type": "xpath"
+  }
+]

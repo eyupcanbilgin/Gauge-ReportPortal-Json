@@ -1,0 +1,22 @@
+[
+  {
+    "key": "addMoneyButton",
+    "value": "//button[text()='Add Money']",
+    "type": "xpath"
+  },
+  {
+    "key": "popupTitle",
+    "value": "//h2[text()='Add Money']",
+    "type": "xpath"
+  },
+  {
+    "key": "amountField",
+    "value": "//input[@name='amount']",
+    "type": "xpath"
+  },
+  {
+    "key": "confirmButton",
+    "value": "//button[text()='Confirm']",
+    "type": "xpath"
+  }
+]

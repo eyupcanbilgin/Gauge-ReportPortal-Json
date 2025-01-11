@@ -45,6 +45,7 @@ public class DriverFactory {
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 20);
+        logger.info("Driver initialized for browser: {}", browserName);
     }
 
     private static ChromeOptions getChromeOptions(boolean isHeadless) {
@@ -57,9 +58,8 @@ public class DriverFactory {
         if (isHeadless) {
             options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
         }
-        // Config dosyasından ChromeDriver yolunu al
-        String chromeDriverPath = Config.get("CHROME_DRIVER_PATH");
-        System.setProperty("webdriver.chrome.driver", "C:/Users/TKA/IdeaProjects/forTitle-dosya/testiniumcase-yeni/src/test/resources/web_driver/chromedriver.exe");
+        String chromeDriverPath = Config.get("CHROME_DRIVER_PATH").trim();
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         return options;
     }
 
@@ -77,8 +77,8 @@ public class DriverFactory {
         if (driver != null) {
             driver.quit();
             driver = null;
+            logger.info("Driver quit successfully.");
         }
-        //TODO try catch and log
     }
 
     public static WebDriverWait getWait() {
