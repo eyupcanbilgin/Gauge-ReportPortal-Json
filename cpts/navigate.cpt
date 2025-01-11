@@ -1,0 +1,7 @@
+# Navigate through the application
+*Click the Open Money Transfer button
+*Verify "myAccountElement" element is visible
+*Verify "transactionsElement" element is visible
+*Verify "transferMoneyElement" element is visible
+*Verify "addMoneyElement" element is visible
+*Verify "editAccountElement" element is visible
