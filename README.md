@@ -37,6 +37,40 @@ Follow the steps below to run the project:
 ## Setup Instructions
 To run the project locally, follow these steps:
 
+## Gauge Installation and Plugin Setup
+
+### Requirements:
+- **Gauge version**: 1.6.11
+- Ensure the following plugins are installed:
+  - `html-report (4.3.1)`
+  - `java (0.11.2)`
+  - `reportportal (1.17.0)`
+  - `screenshot (0.0.1)`
+  - `spectacle (0.2.1)`
+  - `xml-report (0.5.1)`
+
+### Installation Steps:
+1. **Install Gauge**:
+   - Download and install Gauge from the [official Gauge website](https://gauge.org/download/) for your operating system.
+
+2. **Check Gauge Version**:
+   - Verify the installation by running the following command:
+     ```bash
+     gauge -v
+     ```
+     This command should display the installed version of Gauge and the list of installed plugins. Ensure the plugin list matches the required plugins above.
+
+3. **Install Required Plugins**:
+   - Install the required plugins using the following commands:
+     ```bash
+     gauge install html-report
+     gauge install java
+     gauge install reportportal
+     gauge install screenshot
+     gauge install spectacle
+     gauge install xml-report
+     ```
+   
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/eyupcanbilgin/Gauge-ReportPortal-Json.git
