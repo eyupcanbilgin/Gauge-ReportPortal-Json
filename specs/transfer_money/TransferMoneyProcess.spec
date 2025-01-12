@@ -16,7 +16,7 @@ Tags: @All, @Critical, @Regression, @Functional, @TransferMoney
 *Navigate through the application
 *Click the transfer money button
 *Verify transfer money popup elements is visible
-*Enter amount field "1000"
+*Enter transfer money amount field "1000"
 *Click the send button
 * Wait "3" seconds
 *Check last transaction amount is "1000"

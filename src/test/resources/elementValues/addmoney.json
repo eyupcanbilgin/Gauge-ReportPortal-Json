@@ -46,11 +46,11 @@
   },
   {
     "key": "expiryDateField",
-    "value": "(//input[@inputmode='numeric'])[2]",
+    "value": "//input[@placeholder='MM/YY' and @inputmode='numeric']",
     "type": "xpath"
   },
   {
-    "key": "cardHolderField",
+    "key": "cvvField",
     "value": "(//input[@inputmode='numeric'])[3]",
     "type": "xpath"
   },

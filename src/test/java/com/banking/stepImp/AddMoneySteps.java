@@ -20,4 +20,19 @@ public class AddMoneySteps {
     public void verifyAddMoneyPopupElements() {
         addMoneyPage.verifyAddMoneyPopupElements();
     }
+
+    @Step("Click the card number field")
+    public void clickCardNumberField() {
+        addMoneyPage.clickCardNumberField();
+    }
+
+    @Step("Enter special characters in the card number field")
+    public void enterSpecialCharactersInCardNumberField() {
+        addMoneyPage.enterCardNumberFieldWithSpecialCharacters();
+    }
+
+    @Step("Check card number field is empty")
+    public void checkCardNumberFieldIsEmpty() {
+        addMoneyPage.checkCardNumberFieldIsEmpty();
+    }
 }

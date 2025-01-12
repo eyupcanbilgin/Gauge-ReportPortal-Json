@@ -21,7 +21,7 @@ public class TransferSteps {
     public void verifyTransferMoneyPopupElements() {
         transferPage.verifyTransferMoneyPopupElements();
     }
-    @Step("Enter amount field <amount>")
+    @Step("Enter transfer money amount field <amount>")
     public void enterAmount(String amount) {
         transferPage.enterAmount(amount);
     }
