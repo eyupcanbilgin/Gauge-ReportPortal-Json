@@ -72,4 +72,15 @@ public class ElementHelper {
                 throw new IllegalArgumentException("Invalid locator type: " + elementInfo.getType());
         }
     }
+
+    public boolean isElementVisible(String key) {
+        try {
+            WebElement element = findElement(key);
+            return element.isDisplayed();
+        } catch (Exception e) {
+            logger.error("Element with key '{}' is not visible or does not exist.", key, e);
+            return false;
+        }
+    }
+
 }

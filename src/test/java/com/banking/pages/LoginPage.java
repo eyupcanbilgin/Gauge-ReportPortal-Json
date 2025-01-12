@@ -1,39 +1,41 @@
 package com.banking.pages;
 
-import com.banking.utils.DriverFactory;
-import com.banking.utils.ElementHelper;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.banking.utils.Config;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    private final ElementHelper elementHelper;
-    private final WebDriver driver;
+    private static final Logger LOGGER = LogManager.getLogger(LoginPage.class);
 
     public LoginPage() {
-        this.driver = DriverFactory.getDriver("chrome", false); // DriverFactory'den driver alınıyor
-        this.elementHelper = new ElementHelper(driver);
-
-        // JSON dosyasından elementleri yükle
+        super(); // BasePage constructor'ını çağırır
         elementHelper.loadElementsFromJson("src/test/resources/elementValues/login.json");
     }
 
-    public void navigateToBaseURL(String baseURL) {
-        driver.get(baseURL); // Doğrudan driver üzerinden çalışıyor
+    public void navigateToBaseURL() {
+        String baseURL = Config.get("BASE_URL");
+        LOGGER.info("Navigating to URL: {}", baseURL);
+        driver.get(baseURL);
     }
 
-    public void enterUsername(String username) {
-        WebElement usernameField = elementHelper.findElement("usernameField");
-        usernameField.sendKeys(username);
+    public void enterUsername() {
+        String username = Config.get("USERNAME");
+        LOGGER.info("Entering username: {}", username);
+        verifyElementVisible("usernameField", "Username field is not visible.");
+        elementHelper.findElement("usernameField").sendKeys(username);
     }
 
-    public void enterPassword(String password) {
-        WebElement passwordField = elementHelper.findElement("passwordField");
-        passwordField.sendKeys(password);
+    public void enterPassword() {
+        String password = Config.get("PASSWORD");
+        LOGGER.info("Entering password.");
+        verifyElementVisible("passwordField", "Password field is not visible.");
+        elementHelper.findElement("passwordField").sendKeys(password);
     }
 
     public void clickLoginButton() {
-        WebElement loginButton = elementHelper.findElement("loginButton");
-        loginButton.click();
+        LOGGER.info("Clicking the login button.");
+        verifyElementVisible("loginButton", "Login button is not visible.");
+        elementHelper.findElement("loginButton").click();
     }
 }

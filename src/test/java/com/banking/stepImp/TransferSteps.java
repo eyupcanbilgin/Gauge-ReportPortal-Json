@@ -1,4 +1,4 @@
 package com.banking.stepImp;
 
-public class TransferSteps {
+public class TransferSteps{
 }

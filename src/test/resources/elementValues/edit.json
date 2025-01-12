@@ -1,0 +1,27 @@
+[
+  {
+    "key": "editAccountButton",
+    "value": "//div[@dir='auto' and text()='Edit account']",
+    "type": "xpath"
+  },
+  {
+    "key": "editAccountPopupTitle",
+    "value": "//div[text()='Edit account']",
+    "type": "xpath"
+  },
+  {
+    "key": "accountNameTitle",
+    "value": "//div[text()='Account name']",
+    "type": "xpath"
+  },
+  {
+    "key": "accountNameField",
+    "value": "//input[contains(@value, 'Account')]",
+    "type": "xpath"
+  },
+  {
+    "key": "updateButton",
+    "value": "//div[text()='UPDATE']",
+    "type": "xpath"
+  }
+]

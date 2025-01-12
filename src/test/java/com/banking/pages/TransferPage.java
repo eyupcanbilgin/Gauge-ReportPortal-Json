@@ -1,4 +1,4 @@
 package com.banking.pages;
 
-public class TransferPage {
+public class TransferPage extends BasePage{
 }

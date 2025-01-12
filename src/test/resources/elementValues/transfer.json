@@ -1,0 +1,69 @@
+[
+  {
+    "key": "transferMoneyButton",
+    "value": "//div[@dir='auto' and text()='Transfer money']",
+    "type": "xpath"
+  },
+  {
+    "key": "transferMoneyPopupTitle",
+    "value": "//div[text()='Transfer money']",
+    "type": "xpath"
+  },
+  {
+    "key": "senderAccountTitle",
+    "value": "//div[text()='Sender account']",
+    "type": "xpath"
+  },
+  {
+    "key": "sendButton",
+    "value": "//div[text()='Send']",
+    "type": "xpath"
+  },
+  {
+    "key": "receiverAccountTitle",
+    "value": "//div[text()='Receiver account']",
+    "type": "xpath"
+  },
+  {
+    "key": "senderAccountButton",
+    "value": "(//div[contains(@class, 'css-175oi2r')]/select[contains(@style, 'height: 48px;')])[1]",
+    "type": "xpath"
+  },
+  {
+    "key": "receiverAccountButton",
+    "value": "(//div[contains(@class, 'css-175oi2r')]/select[contains(@style, 'height: 48px;')])[2]",
+    "type": "xpath"
+  },
+  {
+    "key": "amountField",
+    "value": "//div[contains(@class, 'css-175oi2r')]/input[contains(@class, 'css-11aywtz')]",
+    "type": "xpath"
+  },
+  {
+    "key": "receiver1",
+    "value": "//select/option[text()='Testinium-1']",
+    "type": "xpath"
+  },
+  {
+    "key": "receiver2",
+    "value": "//select/option[text()='Testinium-2']",
+    "type": "xpath"
+  },
+  {
+    "key": "receiver3",
+    "value": "//select/option[text()='Testinium-3']",
+    "type": "xpath"
+  },
+  {
+    "key": "receiver4",
+    "value": "//select/option[text()='Testinium-4']",
+    "type": "xpath"
+  },
+  {
+    "key": "receiver5",
+    "value": "//select/option[text()='Testinium-5']",
+    "type": "xpath"
+  }
+
+
+]
