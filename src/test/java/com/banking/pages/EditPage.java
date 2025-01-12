@@ -2,6 +2,8 @@ package com.banking.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebElement;
 
 public class EditPage extends BasePage {
 
@@ -27,5 +29,33 @@ public class EditPage extends BasePage {
         verifyElementVisible("updateButton", "Update button is not visible.");
 
         LOGGER.info("All elements in the Edit Account popup are visible.");
+    }
+
+    public void enterNewAccountName(String newAccountName) {
+        LOGGER.info("Entering new account name: {}", newAccountName);
+
+        // Hesap adı alanını kontrol et ve doldur
+        verifyElementVisible("accountNameField", "Account Name field is not visible.");
+        WebElement accountNameField = elementHelper.findElement("accountNameField");
+        accountNameField.clear(); // Alanı temizle
+        accountNameField.sendKeys(newAccountName); // Yeni adı gir
+    }
+
+    public void clickUpdateButton() {
+        LOGGER.info("Clicking the Update button.");
+
+        // Güncelleme butonunun görünür olduğunu kontrol et ve tıkla
+        verifyElementVisible("updateButton", "Update button is not visible.");
+        elementHelper.findElement("updateButton").click();
+    }
+
+    public void verifyAccountNameIsUpdated(String newAccountName) {
+        LOGGER.info("Verifying that the account name is updated to: {}", newAccountName);
+        verifyElementVisible("myAccountName", "Updated account name element is not visible.");
+        WebElement updatedAccountNameElement = elementHelper.findElement("myAccountName");
+        String actualAccountName = updatedAccountNameElement.getText();
+        Assertions.assertEquals(newAccountName, actualAccountName,
+                String.format("Expected account name '%s' but found '%s'.", newAccountName, actualAccountName));
+        LOGGER.info("Account name is successfully updated to: {}", newAccountName);
     }
 }

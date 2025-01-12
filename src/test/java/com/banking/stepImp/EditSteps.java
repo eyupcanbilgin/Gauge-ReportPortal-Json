@@ -5,19 +5,34 @@ import com.thoughtworks.gauge.Step;
 
 public class EditSteps {
 
-    private final EditPage editAccountPage;
+    private final EditPage editPage;
 
     public EditSteps() {
-        this.editAccountPage = new EditPage();
+        this.editPage = new EditPage();
     }
 
     @Step("Click the edit account button")
     public void clickEditAccountButton() {
-        editAccountPage.clickEditAccountButton();
+        editPage.clickEditAccountButton();
     }
 
     @Step("Verify edit account popup elements is visible")
     public void verifyEditAccountPopupElements() {
-        editAccountPage.verifyEditAccountPopupElements();
+        editPage.verifyEditAccountPopupElements();
+    }
+
+    @Step("Enter account name field new name <newAccountName>")
+    public void enterAccountNameFieldNewName(String newAccountName) {
+        editPage.enterNewAccountName(newAccountName);
+    }
+
+    @Step("Click the update button")
+    public void clickUpdateButton() {
+        editPage.clickUpdateButton();
+    }
+
+    @Step("Verify account name is updated to <newAccountName>")
+    public void verifyAccountNameIsUpdated(String newAccountName) {
+        editPage.verifyAccountNameIsUpdated(newAccountName);
     }
 }

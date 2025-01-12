@@ -2,6 +2,7 @@ package com.banking.stepImp;
 
 import com.banking.pages.TransferPage;
 import com.thoughtworks.gauge.Step;
+import org.junit.jupiter.api.Assertions;
 
 public class TransferSteps {
 
@@ -19,5 +20,19 @@ public class TransferSteps {
     @Step("Verify transfer money popup elements is visible")
     public void verifyTransferMoneyPopupElements() {
         transferPage.verifyTransferMoneyPopupElements();
+    }
+    @Step("Enter amount field <amount>")
+    public void enterAmount(String amount) {
+        transferPage.enterAmount(amount);
+    }
+
+    @Step("Click the send button")
+    public void clickSendButton() {
+        transferPage.clickSendButton();
+    }
+
+    @Step("Check last transaction amount is <expectedAmount>")
+    public void checkLastTransactionAmount(String expectedAmount) {
+        transferPage.verifyLastTransactionAmount(expectedAmount);
     }
 }

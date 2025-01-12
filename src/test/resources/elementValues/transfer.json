@@ -63,6 +63,11 @@
     "key": "receiver5",
     "value": "//select/option[text()='Testinium-5']",
     "type": "xpath"
+  },
+  {
+    "key": "lastTransactionAmount",
+    "value": "(//div[contains(@class, 'css-146c3p1') and contains(@style, 'margin-right: 4px;')] )[2]",
+    "type": "xpath"
   }
 
 
