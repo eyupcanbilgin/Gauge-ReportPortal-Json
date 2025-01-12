@@ -16,12 +16,18 @@
   },
   {
     "key": "accountNameField",
-    "value": "//input[contains(@value, 'Account')]",
+    "value": "//div[contains(@class, 'css-175oi2r')]//input[contains(@class, 'css-11aywtz')]",
     "type": "xpath"
   },
   {
     "key": "updateButton",
     "value": "//div[text()='UPDATE']",
     "type": "xpath"
+  },
+  {
+    "key": "myAccountName",
+    "value": "//div[contains(@class, 'css-146c3p1') and text()='${accountName}']",
+    "type": "xpath"
   }
+
 ]

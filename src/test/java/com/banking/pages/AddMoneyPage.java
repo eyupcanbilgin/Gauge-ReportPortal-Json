@@ -2,6 +2,9 @@ package com.banking.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 public class AddMoneyPage extends BasePage {
 
@@ -31,4 +34,27 @@ public class AddMoneyPage extends BasePage {
 
         LOGGER.info("All elements in the Add Money popup are visible.");
     }
+
+    public void clickCardNumberField() {
+        LOGGER.info("Clicking the card number field.");
+        WebElement cardNumberField = elementHelper.findElement("cardNumberField");
+        cardNumberField.click();
+    }
+
+    public void enterCardNumberFieldWithSpecialCharacters() {
+        LOGGER.info("Entering special characters in the card number field.");
+        WebElement cardNumberField = elementHelper.findElement("cardNumberField");
+        cardNumberField.clear();
+        cardNumberField.sendKeys("!@#$%^&*()");
+    }
+
+    public void checkCardNumberFieldIsEmpty() {
+        LOGGER.info("Checking if the card number field is empty.");
+        WebElement cardNumberField = elementHelper.findElement("cardNumberField");
+        boolean isEmpty = cardNumberField.getAttribute("value").isEmpty();
+        if (!isEmpty) {
+            throw new AssertionError("Card number field is not empty as expected.");
+        }
+    }
+
 }
