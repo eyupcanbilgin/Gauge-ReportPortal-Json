@@ -1,22 +1,63 @@
 [
   {
-    "key": "addMoneyButton",
-    "value": "//button[text()='Add Money']",
+  "key": "addMoneyElement",
+  "value": "//div[@dir='auto' and text()='Add money']",
+  "type": "xpath"
+  },
+  {
+    "key": "cardNumberTitle",
+    "value": "//div[text()='Card number']",
     "type": "xpath"
   },
   {
-    "key": "popupTitle",
-    "value": "//h2[text()='Add Money']",
+    "key": "cardHolderTitle",
+    "value": "//div[text()='Card holder']",
+    "type": "xpath"
+  },
+  {
+    "key": "expiryDateTitle",
+    "value": "//div[text()='Expiry date']",
+    "type": "xpath"
+  },
+  {
+    "key": "cvvTitle",
+    "value": "//div[text()='CVV']",
+    "type": "xpath"
+  },
+  {
+    "key": "amountTitle",
+    "value": "//div[text()='Amount']",
+    "type": "xpath"
+  },
+  {
+    "key": "addButton",
+    "value": "//div[text()='Add']",
+    "type": "xpath"
+  },
+  {
+    "key": "cardNumberField",
+    "value": "(//input[@inputmode='numeric'])[1]",
+    "type": "xpath"
+  },
+  {
+    "key": "cardHolderField",
+    "value": "(//input[@spellcheck='true'])[2]",
+    "type": "xpath"
+  },
+  {
+    "key": "expiryDateField",
+    "value": "(//input[@inputmode='numeric'])[2]",
+    "type": "xpath"
+  },
+  {
+    "key": "cardHolderField",
+    "value": "(//input[@inputmode='numeric'])[3]",
     "type": "xpath"
   },
   {
     "key": "amountField",
-    "value": "//input[@name='amount']",
-    "type": "xpath"
-  },
-  {
-    "key": "confirmButton",
-    "value": "//button[text()='Confirm']",
+    "value": "(//input[@inputmode='numeric'])[4]",
     "type": "xpath"
   }
+
 ]

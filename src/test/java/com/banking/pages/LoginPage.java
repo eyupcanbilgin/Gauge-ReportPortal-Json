@@ -3,8 +3,6 @@ package com.banking.pages;
 import com.banking.utils.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebElement;
-import org.junit.jupiter.api.Assertions;
 
 public class LoginPage extends BasePage {
 
@@ -24,35 +22,20 @@ public class LoginPage extends BasePage {
     public void enterUsername() {
         String username = Config.get("USERNAME");
         LOGGER.info("Entering username: {}", username);
-        Assertions.assertTrue(isUsernameFieldVisible(), "Username field is not visible.");
-        WebElement usernameField = elementHelper.findElement("usernameField");
-        usernameField.sendKeys(username);
+        verifyElementVisible("usernameField", "Username field is not visible.");
+        elementHelper.findElement("usernameField").sendKeys(username);
     }
 
     public void enterPassword() {
         String password = Config.get("PASSWORD");
         LOGGER.info("Entering password.");
-        Assertions.assertTrue(isPasswordFieldVisible(), "Password field is not visible.");
-        WebElement passwordField = elementHelper.findElement("passwordField");
-        passwordField.sendKeys(password);
+        verifyElementVisible("passwordField", "Password field is not visible.");
+        elementHelper.findElement("passwordField").sendKeys(password);
     }
 
     public void clickLoginButton() {
         LOGGER.info("Clicking the login button.");
-        Assertions.assertTrue(isLoginButtonVisible(), "Login button is not visible.");
-        WebElement loginButton = elementHelper.findElement("loginButton");
-        loginButton.click();
-    }
-
-    public boolean isUsernameFieldVisible() {
-        return elementHelper.isElementVisible("usernameField");
-    }
-
-    public boolean isPasswordFieldVisible() {
-        return elementHelper.isElementVisible("passwordField");
-    }
-
-    public boolean isLoginButtonVisible() {
-        return elementHelper.isElementVisible("loginButton");
+        verifyElementVisible("loginButton", "Login button is not visible.");
+        elementHelper.findElement("loginButton").click();
     }
 }

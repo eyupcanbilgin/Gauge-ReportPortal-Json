@@ -2,8 +2,6 @@ package com.banking.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebElement;
-import org.junit.jupiter.api.Assertions;
 
 public class AddMoneyPage extends BasePage {
 
@@ -11,24 +9,26 @@ public class AddMoneyPage extends BasePage {
 
     public AddMoneyPage() {
         super(); // BasePage constructor'ını çağırır
-        elementHelper.loadElementsFromJson("src/test/resources/elementValues/addMoney.json");
+        elementHelper.loadElementsFromJson("src/test/resources/elementValues/addmoney.json");
     }
 
     public void clickAddMoneyButton() {
         LOGGER.info("Clicking the Add Money button.");
-        WebElement addMoneyButton = elementHelper.findElement("addMoneyButton");
-        Assertions.assertTrue(addMoneyButton.isDisplayed(), "Add Money button is not visible.");
-        addMoneyButton.click();
+        verifyElementVisible("addMoneyElement", "Add Money button is not visible.");
+        elementHelper.findElement("addMoneyElement").click();
     }
 
     public void verifyAddMoneyPopupElements() {
-        LOGGER.info("Verifying Add Money popup elements are visible.");
-        WebElement popupTitle = elementHelper.findElement("popupTitle");
-        WebElement amountField = elementHelper.findElement("amountField");
-        WebElement confirmButton = elementHelper.findElement("confirmButton");
+        LOGGER.info("Verifying all elements in the Add Money popup.");
 
-        Assertions.assertTrue(popupTitle.isDisplayed(), "Popup title is not visible.");
-        Assertions.assertTrue(amountField.isDisplayed(), "Amount field is not visible.");
-        Assertions.assertTrue(confirmButton.isDisplayed(), "Confirm button is not visible.");
+        verifyElementVisible("addMoneyElement", "Add Money popup title is not visible.");
+        verifyElementVisible("cardNumberTitle", "Card Number title is not visible.");
+        verifyElementVisible("cardHolderTitle", "Card Holder title is not visible.");
+        verifyElementVisible("expiryDateTitle", "Expiry Date title is not visible.");
+        verifyElementVisible("cvvTitle", "CVV title is not visible.");
+        verifyElementVisible("amountTitle", "Amount title is not visible.");
+        verifyElementVisible("addButton", "Add button is not visible.");
+
+        LOGGER.info("All elements in the Add Money popup are visible.");
     }
 }

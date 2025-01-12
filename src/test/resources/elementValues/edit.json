@@ -1,22 +1,27 @@
 [
   {
     "key": "editAccountButton",
-    "value": "//button[@id='edit-account']",
+    "value": "//div[@dir='auto' and text()='Edit account']",
     "type": "xpath"
   },
   {
-    "key": "popupTitle",
-    "value": "//div[@class='popup-title' and text()='Edit Account']",
+    "key": "editAccountPopupTitle",
+    "value": "//div[text()='Edit account']",
     "type": "xpath"
   },
   {
-    "key": "saveButton",
-    "value": "//button[@id='save-changes']",
+    "key": "accountNameTitle",
+    "value": "//div[text()='Account name']",
     "type": "xpath"
   },
   {
-    "key": "cancelButton",
-    "value": "//button[@id='cancel']",
+    "key": "accountNameField",
+    "value": "//input[contains(@value, 'Account')]",
+    "type": "xpath"
+  },
+  {
+    "key": "updateButton",
+    "value": "//div[text()='UPDATE']",
     "type": "xpath"
   }
 ]

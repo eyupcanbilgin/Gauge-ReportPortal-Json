@@ -2,7 +2,9 @@ package com.banking.pages;
 
 import com.banking.utils.DriverFactory;
 import com.banking.utils.ElementHelper;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BasePage {
     protected WebDriver driver;
@@ -13,4 +15,9 @@ public class BasePage {
         this.elementHelper = new ElementHelper(driver);
 
     }
+    public void verifyElementVisible(String elementKey, String errorMessage) {
+        WebElement element = elementHelper.findElement(elementKey);
+        Assertions.assertTrue(element.isDisplayed(), errorMessage);
+    }
+
 }

@@ -1,8 +1,11 @@
 package com.banking.pages;
 
-import org.openqa.selenium.WebElement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AccountPage extends BasePage {
+
+    private static final Logger LOGGER = LogManager.getLogger(AccountPage.class);
 
     public AccountPage() {
         super(); // BasePage constructor'ını çağırır
@@ -10,16 +13,13 @@ public class AccountPage extends BasePage {
     }
 
     public void clickOpenMoneyTransferButton() {
-        WebElement button = elementHelper.findElement("openMoneyTransferButton");
-        button.click();
+        LOGGER.info("Clicking the Open Money Transfer button.");
+        verifyElementVisible("openMoneyTransferButton", "Open Money Transfer button is not visible.");
+        elementHelper.findElement("openMoneyTransferButton").click();
     }
 
-    public boolean isElementVisible(String key) {
-        try {
-            WebElement element = elementHelper.findElement(key);
-            return element.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
+    public void verifyElementVisibility(String key, String errorMessage) {
+        LOGGER.info("Verifying visibility of element with key: {}", key);
+        verifyElementVisible(key, errorMessage);
     }
 }

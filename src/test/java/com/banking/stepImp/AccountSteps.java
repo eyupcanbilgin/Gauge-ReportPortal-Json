@@ -18,6 +18,6 @@ public class AccountSteps {
 
     @Step("Verify <key> element is visible")
     public void verifyElementIsVisible(String key) {
-        accountPage.isElementVisible(key);
+        accountPage.verifyElementVisibility(key, key + " element is not visible.");
     }
 }
