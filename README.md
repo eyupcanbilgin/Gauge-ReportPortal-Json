@@ -1,54 +1,55 @@
-# Proje: Testinium Terfi Teslim (Gauge Test Suite)
+# Project: CatchyLabs (Gauge Test Suite)
 
-## Proje Özeti (Summary of Project)
-Bu proje, Testinium'un Gauge tabanlı test otomasyonu framework'ü üzerine inşa edilmiştir. Mobil ve web uygulamaları için çeşitli senaryoların otomatikleştirilmesini sağlar.
+## Project Summary
+### Overview
+This project is a **web-based financial application** designed to manage account-related operations such as money transfers, account updates, and adding funds. The automation focuses on validating core functionalities to ensure a secure, efficient, and user-friendly experience for managing financial transactions.
 
-Proje temel özellikleri şunlardır:
-- **Gauge Framework** kullanılarak oluşturulmuş test senaryoları
-- **ReportPortal** entegrasyonu sayesinde test raporlarının merkezi bir sistemde tutulması
-- Modüler ve genişletilebilir bir mimari
-- JSON tabanlı element tanımlamaları
+Key features of the project include:
+- Test scenarios developed using the **Gauge Framework**
+- Integration with **ReportPortal** for centralized test reporting
+- Modular and extensible architecture
+- JSON-based element definitions
 
 ---
 
-## Kullanım Kılavuzu (How to Run)
-Projeyi çalıştırmak için aşağıdaki adımları takip ediniz:
+## How to Run
+Follow the steps below to run the project:
 
-1. **Çevre Gereksinimlerini Karşılayın**
-    - Java 11 veya üstü
-    - Maven 3.8 veya üstü
-    - ChromeDriver veya FirefoxDriver uygun versiyonu
+1. **Ensure Prerequisites**
+    - Java 11 or higher
+    - Maven 3.8 or higher
+    - ChromeDriver or FirefoxDriver of a compatible version
 
-2. **Komut Çalıştırma**
+2. **Run Commands**
    ```bash
-   # Tüm testleri çalıştırmak için
+   # Run all tests
    mvn clean test
 
-   # Belirli bir tag'e sahip testleri çalıştırmak için
+   # Run tests with specific tags
    mvn gauge:execute -DspecsDir=specs -Dtags="<tag_name>"
 
-   # ReportPortal entegrasyonu ile çalıştırmak için
+   # Run tests with ReportPortal integration enabled
    mvn clean test -Dreportportal.enabled=true
    ```
 
 ---
 
-## Kurulum Adımları (How to Setup)
-Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin:
+## Setup Instructions
+To run the project locally, follow these steps:
 
-1. **Depoyu Klonlayın**
+1. **Clone the Repository**
    ```bash
-   git clone <repository_url>
-   cd TestiniumTerfiTeslim
+   git clone https://github.com/eyupcanbilgin/Gauge-ReportPortal-Json.git
+   cd Gauge-ReportPortal-Json
    ```
 
-2. **Gerekli Bağımlılıkları Yükleyin**
+2. **Install Dependencies**
    ```bash
    mvn clean install
    ```
 
-3. **Konfigürasyonları Ayarlayın**
-   `src/test/resources/config.properties` dosyasını açarak gerekli bilgileri doldurun:
+3. **Configure Settings**
+   Edit the `src/test/resources/config.properties` file and fill in the required details:
    ```properties
    BASE_URL=<application_base_url>
    USERNAME=<username>
@@ -56,91 +57,118 @@ Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin:
    CHROME_DRIVER_PATH=<path_to_chromedriver>
    ```
 
-4. **Driver Kurulumu**
-    - ChromeDriver veya FirefoxDriver, sistem PATH'ine eklenmelidir.
+4. **Driver Setup**
+    - Add ChromeDriver or FirefoxDriver to the `src/test/resources/web_driver`
 
 ---
 
-## Raporlama (How to Generate Report)
-Raporlama için **ReportPortal** entegrasyonu kullanılmaktadır.
+## ReportPortal Setup and Configuration
 
-### Adımlar:
-1. `src/test/resources/config.properties` dosyasına gerekli ReportPortal bilgilerini ekleyin:
-   ```properties
-   reportportal.enabled=true
-   reportportal.endpoint=http://<your_reportportal_endpoint>
-   reportportal.project=<your_project_name>
-   reportportal.token=<your_token>
-   ```
-2. Maven komutunu çalıştırın:
+### Prerequisites
+- Access to a working **ReportPortal** instance
+- API token for authentication
+
+### Installation Steps
+1. **Install Docker**
+    - Ensure Docker is installed and running on your system. For installation instructions, visit [Docker's official website](https://www.docker.com/get-started).
+
+2. **Download and Set Up ReportPortal**
+   Run the following commands to set up ReportPortal using Docker Compose:
    ```bash
-   mvn clean test -Dreportportal.enabled=true
+   curl -LO https://raw.githubusercontent.com/reportportal/reportportal/master/docker-compose.yml
+   docker-compose -p reportportal up -d --force-recreate
    ```
-3. Sonuçları görmek için ReportPortal UI'ına gidin.
+
+   This will download the necessary images and start the ReportPortal services.
+
+3. **Access ReportPortal**
+   Once the setup is complete, open your browser and navigate to `http://localhost:8080` (or your configured endpoint).
+
+### Configuration Steps
+1. **Add ReportPortal Details**
+   Update the `env/default/default.properties` file with the following:
+   ```properties
+   rp_enabled=true
+   rp_url=http://<your_reportportal_endpoint>
+   rp_project=<your_project_name>
+   rp_uuid=<your_token>
+   ```
+
+2. **Run Tests with ReportPortal Integration**
+   Execute the following Maven command to run tests and send results to ReportPortal:
+   ```bash
+   mvn clean test -Drp_enabled=true
+   ```
+
+3. **Verify Results in ReportPortal**
+    - Open the ReportPortal UI and navigate to your project.
+    - View test execution results, logs, and dashboards.
+
+
 
 ---
 
-## Kaynak Kontrolü ve Commit Yönetimi (Source Code Version Control)
+## Source Code Version Control
 
-### Branch Yönetimi
-- Her kullanıcı, kendi geliştirme sayfası için bir branch oluşturur.
-- Branch adlandırma standardı: `feature/<feature_name>` veya `bugfix/<issue_id>`
+### Branch Management
+- Each user creates a branch for their feature development.
+- Branch naming convention: `feature/<feature_name>` or `bugfix/<issue_id>`
 
-### Commit Mesajları
-- **Standart Commit Formatı:**
+### Commit Messages
+- **Standard Commit Format:**
   ```
   [TYPE] <short_description>
 
   [TYPE]:
-  - feat: Yeni bir özellik
-  - fix: Bir hatanın düzeltilmesi
-  - docs: Dokümantasyon güncellemeleri
+  - feat: New feature
+  - fix: Bug fix
+  - docs: Documentation updates
   ```
 
-### Merge Kuralları
-- Tüm merge talepleri en az bir code review onayı gerektirir.
-- Doğrudan `master` branch'ine push yapmak yasaktır.
+### Merge Rules
+- All merge requests require at least one code review approval.
+- Direct pushes to the `master` branch are prohibited.
 
 ---
 
-## Tag Yönetimi (@tag Management)
-Tag'ler kullanılarak testler belirli kategorilere ayrılabilir. Örneğin:
-- `@smoke` : Duman testleri
-- `@regression` : Regresyon testleri
-- `@critical` : Kritik testler
+## Tag Management
+Tags are used to categorize tests. Examples:
+- `@smoke`: Smoke tests
+- `@regression`: Regression tests
+- `@critical`: Critical tests
 
-Komut ile çalıştırma örneği:
+Command to run tests by tag:
 ```bash
 mvn gauge:execute -Dtags="@smoke"
 ```
 
 ---
 
-## Maven Komutları (Maven Run Commands)
+## Maven Commands
 
-- Tüm testleri çalıştırmak:
+- Run all tests:
   ```bash
   mvn clean test
   ```
 
-- Belirli bir `spec` dosyasını çalıştırmak:
+- Run a specific `spec` file:
   ```bash
   mvn gauge:execute -DspecsDir=specs/account
   ```
 
-- Belirli tag'e sahip testleri çalıştırmak:
+- Run tests with specific tags:
   ```bash
   mvn gauge:execute -Dtags="@regression"
   ```
 
 ---
 
-## Dizin Yapısı (Directory Structure)
+## Directory Structure
 
 ```plaintext
 TestiniumTerfiTeslim
-├── .gauge             # Gauge Framework konfigürasyon dosyaları
-├── specs              # Test senaryoları (.spec dosyaları)
+├── .gauge             # Gauge Framework configuration files
+├── specs              # Test scenarios (.spec files)
 │   ├── account
 │   ├── add_money
 │   ├── edit_account
@@ -148,19 +176,19 @@ TestiniumTerfiTeslim
 ├── src
 │   └── test
 │       ├── java
-│       │   ├── com.banking.model      # Model sınıfları
-│       │   ├── com.banking.pages      # Sayfa nesneleri (Page Objects)
-│       │   ├── com.banking.stepImp    # Gauge step implementasyonları
-│       │   └── com.banking.utils      # Yardımcı sınıflar
+│       │   ├── com.banking.model      # Model classes
+│       │   ├── com.banking.pages      # Page objects
+│       │   ├── com.banking.stepImp    # Gauge step implementations
+│       │   └── com.banking.utils      # Utility classes
 │       └── resources
-│           ├── elementValues          # JSON formatında element tanımları
-│           └── config.properties      # Test yapılandırmaları
-├── pom.xml            # Maven yapılandırma dosyası
-└── README.md          # Proje dokümantasyonu
+│           ├── elementValues          # JSON-formatted element definitions
+│           └── config.properties      # Test configurations
+├── pom.xml            # Maven configuration file
+└── README.md          # Project documentation
 ```
 
 ---
 
-## İletişim (Contact)
-Herhangi bir soru için şu kişilerle iletişime geçebilirsiniz:
-- [Proje Sahibi](mailto:eyupcanbilgin01@gmail.com)
+## Contact
+For any questions, please reach out to:
+- [Eyüpcan Bilgin](mailto:eyupcanbilgin.uni@gmail.com)

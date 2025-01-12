@@ -3,7 +3,7 @@ Edit Account Pop Up Scenarios
 
 Edit Account PopUp Check Elements
 ---------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @EditAccout
+Tags: @All, @Regression, @HighPriority, @UI, @EditAccount
 *Login to the application
 *Navigate through the application
 *Click the edit account button
@@ -11,7 +11,7 @@ Tags: @All, @Critical, @Regression, @Functional, @EditAccout
 
 Account Page Element Control After Updating The Account Name
 ------------------------------------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @EditAccout
+Tags: @All, @Functional, @Regression, @HighPriority, @EditAccount, @DataUpdate
 *Login to the application
 *Navigate through the application
 *Click the edit account button

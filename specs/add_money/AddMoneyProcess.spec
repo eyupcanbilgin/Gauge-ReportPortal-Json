@@ -3,7 +3,7 @@ Add Money Pop Up Scenarios
 
 Add Money PopUp Check Elements
 ------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @AddMoney
+Tags: @All, @Regression, @HighPriority, @UI, @AddMoney
 *Login to the application
 *Navigate through the application
 *Click the add money button
@@ -11,7 +11,7 @@ Tags: @All, @Critical, @Regression, @Functional, @AddMoney
 
 Chech to not Enter Special Characters in the Card Number Field
 --------------------------------------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @AddMoney
+Tags: @All, @Functional, @Negative, @Validation, @HighPriority, @AddMoney
 *Login to the application
 *Navigate through the application
 *Click the add money button

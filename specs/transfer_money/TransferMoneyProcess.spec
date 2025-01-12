@@ -3,7 +3,7 @@ Transfer Money Pop Up Scenarios
      
 Transfer Money PopUp Check Elements
 -----------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @TransferMoney
+Tags: @All, @Regression, @HighPriority, @UI, @TransferMoney
 *Login to the application
 *Navigate through the application
 *Click the transfer money button
@@ -11,7 +11,7 @@ Tags: @All, @Critical, @Regression, @Functional, @TransferMoney
 
 Successful Transfer Money Transactions
 --------------------------------------
-Tags: @All, @Critical, @Regression, @Functional, @TransferMoney
+Tags: @All, @Functional, @Positive, @HighPriority, @Regression, @TransferMoney, @Transaction
 *Login to the application
 *Navigate through the application
 *Click the transfer money button
